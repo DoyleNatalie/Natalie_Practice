@@ -1,6 +1,9 @@
-a=1+3
 
-print(a)
 
+import pandas as pd
+Netflix_shows=pd.read_csv("Netflix Shows.csv")
+
+print(Netflix_shows.info())
+print(Netflix_shows.head())
 
 
