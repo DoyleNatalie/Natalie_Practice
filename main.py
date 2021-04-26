@@ -1,18 +1,15 @@
 # Example 1, do not modify!
-print(8 / 2)
-
-# Example 2, do not modify!
-print(2**2)
-
-revenue_1 = 258
-revenue_2 = 84
-revenue_3 = 126
+import matplotlib.pyplot as plt
+import pandas as pd
 
 
-# Print the total revenue
-total = revenue_1 + revenue_2 + revenue_3
-print(total)
+medals=pd.read_csv("medals_by_country_2016.csv",index_col=0)
+fig,ax =plt.subplots()
+ax.bar(medals.index,medals["Gold"],label="Gold")
+ax.bar(medals.index, medals["Silver"],bottom=medals["Gold"],label="Silver")
+ax.bar(medals.index, medals["Bronze"],bottom=medals["Gold"]+medals["Silver"],label="Bronze")
+ax.set_xticklabels(medals.index,rotation=90)
+ax.set_ylabel("Number of Medals")
+ax.legend()
+plt.show()
 
-# Print the average revenue
-average = total / 3
-print(average)
