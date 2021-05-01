@@ -12,4 +12,3 @@ ax.set_xticklabels(medals.index,rotation=90)
 ax.set_ylabel("Number of Medals")
 ax.legend()
 plt.show()
-
