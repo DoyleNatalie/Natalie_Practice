@@ -1,10 +1,12 @@
 # Example 1, do not modify!
-import matplotlib.pyplot as plt
 import pandas as pd
-from datetime import datetime
+import matplotlib.pyplot as plt
 
-today=pd.Timestamp
-print(today)
+Stock_prices=pd.read_csv("HistoricalQuotes - Copy.csv",index_col=0)
+print(Stock_prices.info())
+Stock_top=Stock_prices.head(50)
 
-index=pd.date_range(start='2020-1-1',periods=12, freq='M')
-print(index)
+fig,ax=plt.subplots()
+ax.plot(Stock_top.index,Stock_top["close"])
+print(ax)
+plt.show()

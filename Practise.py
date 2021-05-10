@@ -83,3 +83,10 @@ ax.set_ylabel("Number of Medals")
 fig.set_size_inches([18,10])
 ax.legend()
 fig.savefig("gold_medals_best.jpg")
+
+
+today=pd.Timestamp
+print(today)
+
+index=pd.date_range(start='2020-1-1',periods=12, freq='M')
+print(index)
