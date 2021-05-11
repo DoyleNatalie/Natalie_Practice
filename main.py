@@ -2,12 +2,25 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-Stock_prices=pd.read_csv("HistoricalQuotes - Copy.csv",index_col=0)
-print(Stock_prices.info())
-Stock_top=Stock_prices.head(20)
+netflix=pd.read_csv("netflix_titles.csv")
 
-fig,ax=plt.subplots()
-ax.plot(Stock_top.index,Stock_top["close"])
-fig.autofmt_xdate()
-print(ax)
-plt.show()
+netflix_by_year=netflix.sort_values("release_year")
+print(netflix_by_year.isnull().sum())
+
+M_night=netflix[netflix["director"]== "M. Night Shyamalan"]
+print(M_night)
+
+movies=netflix[netflix["type"]=="Movie"]
+print(movies.isnull().sum())
+
+Full_movies=movies.fillna("unknown")
+print(Full_movies.info())
+
+Full_movies.to_csv("Full_netflix-movies.csv")
+
+
+
+
+
+
+
